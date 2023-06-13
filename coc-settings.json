@@ -1,0 +1,8 @@
+{
+	"coc.preferences.formatOnSaveFiletypes":  ["*"]
+	"prettier.printWidth": 120,
+	"prettier.useTabs": false,
+	"prettier.tabWidth": 2,
+	"semi": true,
+	"singleQuote": false,
+}

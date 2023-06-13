@@ -101,9 +101,6 @@ return require('packer').startup(function(use)
 
 	use {'romgrk/barbar.nvim', requires = 'nvim-web-devicons'}
 
-	use('jose-elias-alvarez/null-ls.nvim')
-	use('MunifTanjim/prettier.nvim')
-
 	use {
 		"folke/todo-comments.nvim",
 		requires = "nvim-lua/plenary.nvim",
@@ -122,5 +119,7 @@ return require('packer').startup(function(use)
 	use {'akinsho/git-conflict.nvim', tag = "*", config = function()
 		require('git-conflict').setup()
 	end}
+
+	use {'neoclide/coc.nvim', branch = 'release'}
 
 end)
