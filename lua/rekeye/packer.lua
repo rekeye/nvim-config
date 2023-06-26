@@ -9,7 +9,6 @@ return require('packer').startup(function(use)
 
   use {
 	  'nvim-telescope/telescope.nvim', tag = '0.1.1',
-	  -- or                            , branch = '0.1.x',
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
 
@@ -22,15 +21,20 @@ return require('packer').startup(function(use)
 	  end
   })
 
-  use({ 
+  use { 
 	  'nvim-treesitter/nvim-treesitter', 
-	  {run = ':TSUpdate'}
-  })
+	  run = ':TSUpdate'
+  }
   use('nvim-treesitter/playground')
+	use('nvim-treesitter/nvim-treesitter-context')
 
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
 
+	use {
+		'neoclide/coc.nvim',
+		branch = 'release'
+	}
 	use {
 	  'VonHeikemen/lsp-zero.nvim',
 	  branch = 'v1.x',
@@ -54,45 +58,35 @@ return require('packer').startup(function(use)
 	  }
   }
 
-	use {
-		"startup-nvim/startup.nvim",
-		config = function()
-			require("startup").setup { theme = "evil" }
-		end,
-	}
-
 	use({
 		"folke/noice.nvim",
 		config = function()
-			require("noice").setup({
-				-- add any options here
-			})
+			require("noice").setup()
 		end,
 		requires = {
-			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
 			"MunifTanjim/nui.nvim",
 		}
 	})
+
+	use {
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" }
+	}
 
 	use {
 		"folke/which-key.nvim",
 		config = function()
 			vim.o.timeout = true
 			vim.o.timeoutlen = 300
-			require("which-key").setup {
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
-			}
 		end
 	}
 
 	use {
 		'nvim-tree/nvim-tree.lua',
 		requires = {
-			'nvim-tree/nvim-web-devicons', -- optional, for file icons
+			'nvim-tree/nvim-web-devicons',
 		},
-		tag = 'nightly' -- optional, updated every week. (see issue #1193)
+		tag = 'nightly'
 	}
 
 	use {
@@ -100,9 +94,6 @@ return require('packer').startup(function(use)
 		requires = "nvim-lua/plenary.nvim",
 		config = function()
 			require("todo-comments").setup {
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
 				highlight = {
 					comments_only = false
 				}
