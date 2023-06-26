@@ -71,10 +71,6 @@ return require('packer').startup(function(use)
 		requires = {
 			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
 			"MunifTanjim/nui.nvim",
-			-- OPTIONAL:
-			--   `nvim-notify` is only needed, if you want to use the notification view.
-			--   If not available, we use `mini` as the fallback
-			"rcarriga/nvim-notify",
 		}
 	})
 
@@ -99,8 +95,6 @@ return require('packer').startup(function(use)
 		tag = 'nightly' -- optional, updated every week. (see issue #1193)
 	}
 
-	use {'romgrk/barbar.nvim', requires = 'nvim-web-devicons'}
-
 	use {
 		"folke/todo-comments.nvim",
 		requires = "nvim-lua/plenary.nvim",
@@ -120,6 +114,8 @@ return require('packer').startup(function(use)
 		require('git-conflict').setup()
 	end}
 
-	use {'neoclide/coc.nvim', branch = 'release'}
-
+	use {
+		"ThePrimeagen/harpoon", 
+		requires = "nvim-lua/plenary.nvim",
+	}
 end)
