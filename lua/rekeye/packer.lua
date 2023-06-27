@@ -11,6 +11,7 @@ return require('packer').startup(function(use)
 	  'nvim-telescope/telescope.nvim', tag = '0.1.1',
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
+	use {'nvim-telescope/telescope-ui-select.nvim' }
 
   use({
 	  'rose-pine/neovim',
@@ -60,9 +61,6 @@ return require('packer').startup(function(use)
 
 	use({
 		"folke/noice.nvim",
-		config = function()
-			require("noice").setup()
-		end,
 		requires = {
 			"MunifTanjim/nui.nvim",
 		}
@@ -70,7 +68,8 @@ return require('packer').startup(function(use)
 
 	use {
 		"folke/trouble.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" }
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = {}
 	}
 
 	use {
