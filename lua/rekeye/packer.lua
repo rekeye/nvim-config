@@ -109,4 +109,12 @@ return require('packer').startup(function(use)
 		"ThePrimeagen/harpoon", 
 		requires = "nvim-lua/plenary.nvim",
 	}
+
+	-- Flutter
+	use {
+		'akinsho/flutter-tools.nvim',
+		requires = {
+			'nvim-lua/plenary.nvim',
+		},
+	}
 end)
