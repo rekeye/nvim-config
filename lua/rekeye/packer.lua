@@ -89,15 +89,15 @@ return require('packer').startup(function(use)
 	}
 
 	use {
-		"folke/todo-comments.nvim",
-		requires = "nvim-lua/plenary.nvim",
-		config = function()
-			require("todo-comments").setup {
-				highlight = {
-					comments_only = false
-				}
-			}
-		end
+    "AmeerTaweel/todo.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+        require("todo").setup {
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
+        }
+    end
 	}
 
 	use {'akinsho/git-conflict.nvim', tag = "*", config = function()
