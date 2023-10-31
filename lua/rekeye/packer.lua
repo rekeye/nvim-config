@@ -14,11 +14,10 @@ return require('packer').startup(function(use)
 	use {'nvim-telescope/telescope-ui-select.nvim' }
 
   use({
-	  'rose-pine/neovim',
-	  as = 'rose-pine',
+	  'stevedylandev/flexoki-nvim',
+	  as = 'flexoki',
 	  config = function()
-		  require("rose-pine").setup()
-		  vim.cmd('colorscheme rose-pine')
+		  vim.cmd('colorscheme flexoki')
 	  end
   })
 
