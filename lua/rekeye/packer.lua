@@ -21,22 +21,17 @@ return require('packer').startup(function(use)
 	  end
   })
 
-  use { 
-	  'nvim-treesitter/nvim-treesitter', 
+  use {
+	  'nvim-treesitter/nvim-treesitter',
 	  run = ':TSUpdate'
   }
   use('nvim-treesitter/playground')
-	use('nvim-treesitter/nvim-treesitter-context')
 
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
 
 	use {
-		'neoclide/coc.nvim',
-		branch = 'release'
-	}
-	use {
-	  'VonHeikemen/lsp-zero.nvim',
+	  						'VonHeikemen/lsp-zero.nvim',
 	  branch = 'v1.x',
 	  requires = {
 		  -- LSP Support
@@ -57,6 +52,8 @@ return require('packer').startup(function(use)
 		  {'rafamadriz/friendly-snippets'},
 	  }
   }
+
+  use('dense-analysis/ale')
 
 	use({
 		"folke/noice.nvim",
@@ -106,13 +103,5 @@ return require('packer').startup(function(use)
 	use {
 		"ThePrimeagen/harpoon", 
 		requires = "nvim-lua/plenary.nvim",
-	}
-
-	-- Flutter
-	use {
-		'akinsho/flutter-tools.nvim',
-		requires = {
-			'nvim-lua/plenary.nvim',
-		},
 	}
 end)

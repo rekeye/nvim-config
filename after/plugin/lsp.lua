@@ -3,7 +3,6 @@ local lsp = require('lsp-zero')
 lsp.preset("recommended")
 
 lsp.ensure_installed({
-	'rust-analyzer',
   'tsserver',
 	'eslint',
 })
@@ -17,16 +16,6 @@ lsp.configure('lua-language-server', {
             }
         }
     }
-})
-
-lsp.configure('rust-analyzer', {
-	settings ={
-		["rust-analyzer"] = {
-			cargo = {
-				features = ["ssr"],
-			}
-		}
-	}
 })
 
 local cmp = require('cmp')
