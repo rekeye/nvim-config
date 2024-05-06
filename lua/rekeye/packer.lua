@@ -31,7 +31,7 @@ return require('packer').startup(function(use)
   use('tpope/vim-fugitive')
 
 	use {
-	  						'VonHeikemen/lsp-zero.nvim',
+		'VonHeikemen/lsp-zero.nvim',
 	  branch = 'v1.x',
 	  requires = {
 		  -- LSP Support
@@ -54,13 +54,6 @@ return require('packer').startup(function(use)
   }
 
   use('dense-analysis/ale')
-
-	use({
-		"folke/noice.nvim",
-		requires = {
-			"MunifTanjim/nui.nvim",
-		}
-	})
 
 	use {
 		"folke/trouble.nvim",
@@ -88,11 +81,7 @@ return require('packer').startup(function(use)
     "AmeerTaweel/todo.nvim",
     requires = "nvim-lua/plenary.nvim",
     config = function()
-        require("todo").setup {
-            -- your configuration comes here
-            -- or leave it empty to use the default settings
-            -- refer to the configuration section below
-        }
+        require("todo")
     end
 	}
 
@@ -101,7 +90,7 @@ return require('packer').startup(function(use)
 	end}
 
 	use {
-		"ThePrimeagen/harpoon", 
+		"ThePrimeagen/harpoon",
 		requires = "nvim-lua/plenary.nvim",
 	}
 end)
