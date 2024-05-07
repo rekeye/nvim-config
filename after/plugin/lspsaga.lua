@@ -1,22 +1,22 @@
 -- import lspsaga safely
 local saga_status, saga = pcall(require, "lspsaga")
 if not saga_status then
-  return
+	return
 end
 
 saga.setup({
-  -- keybinds for navigation in lspsaga window
-  scroll_preview = { scroll_down = "<C-j>", scroll_up = "<C-k>" },
-  -- use enter to open file with definition preview
-  definition = {
-    edit = "<CR>",
-  },
-	lightbulb = {
-		virtual_text = false
+	-- keybinds for navigation in lspsaga window
+	scroll_preview = { scroll_down = "<C-j>", scroll_up = "<C-k>" },
+	-- use enter to open file with definition preview
+	definition = {
+		edit = "<CR>",
 	},
-  ui = {
-    colors = {
-      normal_bg = "#022746",
-    },
-  },
+	lightbulb = {
+		virtual_text = false,
+	},
+	ui = {
+		colors = {
+			normal_bg = "#022746",
+		},
+	},
 })
