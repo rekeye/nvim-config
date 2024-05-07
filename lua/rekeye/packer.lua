@@ -4,14 +4,8 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-  -- Packer can manage itself
+  -- packer can manage itself
   use 'wbthomason/packer.nvim'
-
-  use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.1',
-	  requires = { {'nvim-lua/plenary.nvim'} }
-  }
-	use {'nvim-telescope/telescope-ui-select.nvim' }
 
   use({
 	  'stevedylandev/flexoki-nvim',
@@ -22,6 +16,16 @@ return require('packer').startup(function(use)
   })
 
   use {
+	  'nvim-telescope/telescope.nvim', tag = '0.1.1',
+	  requires = { {'nvim-lua/plenary.nvim'} }
+  }
+	use {'nvim-telescope/telescope-ui-select.nvim' }
+	use {
+		"ThePrimeagen/harpoon",
+		requires = "nvim-lua/plenary.nvim",
+	}
+
+  use {
 	  'nvim-treesitter/nvim-treesitter',
 	  run = ':TSUpdate'
   }
@@ -29,29 +33,6 @@ return require('packer').startup(function(use)
 
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
-
-	use {
-		'VonHeikemen/lsp-zero.nvim',
-	  branch = 'v1.x',
-	  requires = {
-		  -- LSP Support
-		  {'neovim/nvim-lspconfig'},
-		  {'williamboman/mason.nvim'},
-		  {'williamboman/mason-lspconfig.nvim'},
-
-		  -- Autocompletion
-		  {'hrsh7th/nvim-cmp'},
-		  {'hrsh7th/cmp-buffer'},
-		  {'hrsh7th/cmp-path'},
-		  {'saadparwaiz1/cmp_luasnip'},
-		  {'hrsh7th/cmp-nvim-lsp'},
-		  {'hrsh7th/cmp-nvim-lua'},
-
-		  -- Snippets
-		  {'L3MON4D3/LuaSnip'},
-		  {'rafamadriz/friendly-snippets'},
-	  }
-  }
 
   use('dense-analysis/ale')
 
@@ -70,18 +51,10 @@ return require('packer').startup(function(use)
 	}
 
 	use {
-		'nvim-tree/nvim-tree.lua',
-		requires = {
-			'nvim-tree/nvim-web-devicons',
-		},
-		tag = 'nightly'
-	}
-
-	use {
     "AmeerTaweel/todo.nvim",
     requires = "nvim-lua/plenary.nvim",
     config = function()
-        require("todo")
+        require("todo").setup()
     end
 	}
 
@@ -89,8 +62,28 @@ return require('packer').startup(function(use)
 		require('git-conflict').setup()
 	end}
 
-	use {
-		"ThePrimeagen/harpoon",
-		requires = "nvim-lua/plenary.nvim",
-	}
+  use("hrsh7th/nvim-cmp") -- completion plugin
+  use("hrsh7th/cmp-buffer") -- source for text in buffer
+  use("hrsh7th/cmp-path") -- source for file system paths
+
+	-- lsp servers
+	use('williamboman/mason.nvim')
+	use('williamboman/mason-lspconfig.nvim')
+
+	-- lsp configuration
+	use('neovim/nvim-lspconfig')
+	use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
+  use({
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    requires = {
+      { "nvim-tree/nvim-web-devicons" },
+      { "nvim-treesitter/nvim-treesitter" },
+    },
+  }) -- enhanced lsp uis
+  use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
+  use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
+
+  use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
+	use('williamboman/mason-null-ls.nvim')
 end)
