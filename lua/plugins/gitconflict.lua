@@ -1,4 +1,3 @@
-local gitconflict = require("git-conflict")
 return {
 	{
 		"akinsho/git-conflict.nvim",
@@ -16,7 +15,3 @@ return {
 			}
 	}
 }
-
-gitconflict.setup({
-	,
-})
